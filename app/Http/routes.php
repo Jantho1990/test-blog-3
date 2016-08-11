@@ -28,6 +28,9 @@ Route::post('password/reset', 'Auth\PasswordController@reset');
 /* Categories */
 Route::resource('categories', 'CategoryController', ['except' => ['create']]);
 
+/* Comments */
+Route::post('comments/{post_id}', ['uses' => 'CommentsController@store', 'as' => 'comments.store']);
+
 /* Tags */
 Route::resource('tags', 'TagController');
 
