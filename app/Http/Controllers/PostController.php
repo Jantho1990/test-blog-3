@@ -173,8 +173,9 @@ class PostController extends Controller
     public function destroy($id)
     {
         $post = Post::find($id);
+		$post->tags()->detach();
 		$post->delete();
-		Session::flash('success', 'The poast was successfully deleted.');
+		Session::flash('success', 'The post was successfully deleted.');
 		return redirect()->route('posts.index');
     }
 }
