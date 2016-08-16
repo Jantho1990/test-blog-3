@@ -15,7 +15,7 @@
 		<hr>
 		<h2>{{ $post-> title }}</h2>
 		<h5>Published: {{ date('m/d/y h:ia e', strtotime($post->created_at)) }}</h5>
-		<p>{{ substr($post->body, 0, 250) }}{{ strlen($post->body)>250?'...':'' }}</p>
+		<p>{{ substr(strip_tags($post->body), 0, 250) }}{{ strlen(strip_tags($post->body))>250?'...':'' }}</p>
 		<a href="{{ route('blog.single', $post->slug) }}" class="btn btn-primary">Read More</a>
 	</div>
 </div>
